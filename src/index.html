@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -28,6 +28,40 @@
         </nav>
       </div>
     </header>
+    <main>
+      <div class="characterText">
+        <h1 class="text">C H A R A C T E R S</h1>
+      </div>
+      <div class="wrapCharacters">
+        <div class="characterCard" id="characterContainer"></div>
+      </div>
+
+      <div class="filter">
+        <select
+          class="orderAlphabetically"
+          name="order"
+          id="orderAlphabetically"
+        >
+          <option selected disabled>Order</option>
+          <option value="">A-Z</option>
+          <option value="">Z-A</option>
+          <option value="">Default</option>
+        </select>
+        <div class="specieCharacter">
+          <p class="specie">Specie</p>
+          <input class="tag" type="checkbox" for="" />Human
+          <input class="tag" type="checkbox" for="" />Alien
+          <input class="tag" type="checkbox" for="" />Unknown
+        </div>
+        <div class="stateCharacter">
+          <p class="state">State</p>
+          <input class="tag" type="checkbox" for="" />Alive
+          <input class="tag" type="checkbox" for="" />Dead
+          <input class="tag" type="checkbox" for="" />Unknown
+        </div>
+        <p class="addHBO"></p>
+      </div>
+    </main>
     <script src="main.js" type="module"></script>
   </body>
 </html>
