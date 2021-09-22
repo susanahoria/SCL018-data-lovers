@@ -1,0 +1,52 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+/*----------Barra de scroll--------*/
+::-webkit-scrollbar {
+  background-color: rgba(24, 46, 170, 0.801);
+}
+::-webkit-scrollbar-button {
+  background-color: lightblue;
+}
+
+body {
+  position: inherit;
+  box-sizing: border-box;
+  font-family: "Balsamiq Sans", cursive;
+}
+/*-----------Header----------*/
+.navRickMorty {
+  background: rgba(137, 43, 226, 0.384);
+  position: inherit;
+  width: 100%;
+  display: inline-block;
+  border-radius: 20px;
+}
+
+.searchbtn {
+  position: inherit;
+  font-family: "Balsamiq Sans", cursive;
+  float: right;
+  margin-top: -90px;
+  margin-right: 50px;
+  width: 250px;
+  height: 50px;
+  border-radius: 23px;
+  text-align: center;
+  font-size: 22px;
+}
+/*-----------Pagina completa-------------*/
+.charactersScreen {
+  background: url(images/cropped-1536-864-876589.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
