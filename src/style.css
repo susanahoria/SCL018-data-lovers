@@ -24,7 +24,21 @@ body {
   display: inline-block;
   border-radius: 20px;
 }
-
+.episodesbtn {
+  position: inherit;
+  background-color: #7ba381;
+  font-family: "Lilita One", cursive;
+  float: right;
+  color: aliceblue;
+  margin-top: -90px;
+  margin-right: 350px;
+  width: 250px;
+  height: 50px;
+  border-radius: 23px;
+  text-align: center;
+  font-size: 22px;
+  border: none;
+}
 .searchbtn {
   position: inherit;
   background-color: #7ba381;
@@ -98,19 +112,26 @@ body {
 .specie {
   font-size: 30px;
 }
+p {
+  border-bottom: 1px solid white;
+}
+input {
+  cursor: pointer;
+}
 .specieCharacter {
+  border-bottom: 1px azure;
   font-family: "Lilita One", cursive;
-  display: table-row;
   top: 220px;
   right: 35px;
   width: 230px;
   height: 160px;
   background-color: #7ba381;
-  position: fixed;
+  position: absolute;
   color: aliceblue;
   text-align: center;
   font-size: 25px;
   border-radius: 20px;
+  margin-bottom: 30px;
 }
 .stateCharacter {
   font-family: "Lilita One", cursive;
@@ -125,10 +146,6 @@ body {
   text-align: center;
   font-size: 25px;
   border-radius: 20px;
-}
-.tag {
-  display: grid;
-  grid-row-gap: 5px;
 }
 
 /*--------ADD-----*/

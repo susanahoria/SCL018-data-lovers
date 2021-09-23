@@ -18,6 +18,13 @@
           <img src="images/rickandmortylogopng.png" alt="" />
           <div>
             <input
+              type="button"
+              name="episodes"
+              id="episodesbtn"
+              class="episodesbtn"
+              value="EPISODES"
+            />
+            <input
               type="text"
               name="searchbtn"
               id="searchbtn"
@@ -33,7 +40,7 @@
         <h1 class="text">C H A R A C T E R S</h1>
       </div>
       <div class="wrapCharacters">
-        <div class="characterCard" id="characterContainer"></div>
+        <div class="characterCard" id="characterCard"></div>
       </div>
 
       <div class="filter">
@@ -49,9 +56,14 @@
         </select>
         <div class="specieCharacter">
           <p class="specie">Specie</p>
-          <input class="tag" type="checkbox" for="" />Human
-          <input class="tag" type="checkbox" for="" />Alien
-          <input class="tag" type="checkbox" for="" />Unknown
+          <input class="tag" type="checkbox" for="specie" value="Human" />Human
+          <input class="tag" type="checkbox" for="specie" value="Alien" />Alien
+          <input
+            class="tag"
+            type="checkbox"
+            for="specie"
+            value="Unknown"
+          />Unknown
         </div>
         <div class="stateCharacter">
           <p class="state">State</p>
