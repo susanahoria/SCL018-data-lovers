@@ -35,7 +35,7 @@
         </nav>
       </div>
     </header>
-   <main>
+    <main>
       <div class="characterText">
         <h1 class="text">C H A R A C T E R S</h1>
       </div>
@@ -50,21 +50,26 @@
           id="orderAlphabetically"
         >
           <option selected disabled>Order</option>
-          <option value="">A-Z</option>
-          <option value="">Z-A</option>
-          <option value="">Default</option>
+          <option value="azOrder" id="azOrder">A-Z</option>
+          <option value="zaOrder" id="zaOrder">Z-A</option>
+          <option value="default" id="ddefault">Default</option>
         </select>
         <div class="specieCharacter">
           <p class="specie">Specie</p>
-          <input class="tag" type="checkbox" value="Human" id="humanCheck" />Human
-          <input class="tag" type="checkbox" value="Alien" id="alienCheck" />Alien
-          <input class="tag" type="checkbox" value="Unknown" id="unknownCheck" />Unknown
+          <input class="tag" type="checkbox" for="specie" value="Human" />Human
+          <input class="tag" type="checkbox" for="specie" value="Alien" />Alien
+          <input
+            class="tag"
+            type="checkbox"
+            for="specie"
+            value="Unknown"
+          />Unknown
         </div>
         <div class="stateCharacter">
           <p class="state">State</p>
-          <input class="tag" type="checkbox" value="Alive" id="aliveCheck" />Alive
-          <input class="tag" type="checkbox" value="Dead" id="deadCheck" />Dead
-          <input class="tag" type="checkbox" value="Unknown" id="unknownCheck" />Unknown
+          <input class="tag" type="checkbox" for="" />Alive
+          <input class="tag" type="checkbox" for="" />Dead
+          <input class="tag" type="checkbox" for="" />Unknown
         </div>
         <button class="addHBO" id="addHBO"></button>
       </div>

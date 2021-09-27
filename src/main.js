@@ -24,17 +24,21 @@ const characterList = function (characters) {
               <p id="nameChar" class="name-backcard">${characters[i].name}</p>
             <div class="infoChar"> 
               <div class="propertyFlex">
-              <p class="propertyStyle">Status:</p>
-              <p id="statusChar" class="cardText">${characters[i].status}</p><br>
-            </div>
-            <div class="propertyFlex">
-              <p class="propertyStyle">Specie: </p>
-              <p id="specieChar" class="cardText">${characters[i].species}</p><br>
-            </div>
-            <div class="propertyFlex">
-              <p class="propertyStyle">Gender: </p>
-              <p id="genderChar" class="cardText">${characters[i].gender}</p><br>
-            </div>
+               <p class="propertyStyle">Gender: </p>
+               <p id="genderChar" class="cardText">${characters[i].gender}</p><br>
+              </div>
+              <div class="propertyFlex">
+               <p class="propertyStyle">Status:</p>
+               <p id="statusChar" class="cardText">${characters[i].status}</p><br>
+              </div>
+              <div class="propertyFlex">
+               <p class="propertyStyle">Specie: </p>
+               <p id="specieChar" class="cardText">${characters[i].species}</p><br>
+              </div>
+              <div class="propertyFlex">
+               <p class="propertyStyle">Origin: </p>
+               <p id=originChar" class="chardText">${characters[i].origin.name}</p><br>
+              </div>
             </div>
         </div>
       </div>
@@ -50,6 +54,25 @@ searchBtn.addEventListener("keyup", function (e) {
   const searchTarget = e.target.value;
   let searchData = dataOrder.searchCharacter(printCharacter, searchTarget);
   characterList(searchData);
+});
+
+//---------------Orden alfabetico---------------//
+const alphabeticalOrder = document.getElementById("orderAlphabetically");
+alphabeticalOrder.addEventListener("change", function () {
+  if (alphabeticalOrder.value === "azOrder") {
+    listCharacters.innerHTML = "";
+    let array = dataOrder.orderAZ(printCharacter);
+    printCharacter = array;
+    characterList(printCharacter);
+  } else if (alphabeticalOrder.value === "zaOrder") {
+    let array = dataOrder.orderZA(printCharacter);
+    printCharacter = array;
+    characterList(printCharacter);
+  } else if (alphabeticalOrder.value === "default") {
+    let array = dataOrder.orderDefault(printCharacter);
+    printCharacter = array;
+    characterList(printCharacter);
+  }
 });
 
 //-------------ADD HBO-------------//
