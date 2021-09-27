@@ -1,7 +1,8 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: inherit;
+  box-sizing: inherit; /* al elemento al cual se aplica tome el valor 
+  calculado de la propiedad de su elemento padre.*/
 }
 /*----------Barra de scroll--------*/
 ::-webkit-scrollbar {
@@ -25,7 +26,7 @@ body {
 .navRickMorty {
   position: fixed;
   width: 100%;
-  display: inline-block;
+  display: inline-block;/*aparece en line pero se comporta como block*/
   border-radius: 20px;
   height: 120px;
 }
@@ -77,6 +78,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+  overflow-y: scroll;/*Permite regular si los contenidos que sobresalen se seguirán 
+  viendo, si se ocultarán o si aparecerá una barra de scroll en el documento*/
 }
 /*---------Texto CHARACTERS-------*/
 .characterText {
@@ -324,3 +327,4 @@ input {
   display: flex;
   flex-direction: row;
 }
+
