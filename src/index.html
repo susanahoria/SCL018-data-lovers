@@ -15,8 +15,15 @@
     <header>
       <div class="charactersScreen" id="charactersScreen">
         <nav class="navRickMorty">
-          <img src="images/rickandmortylogopng.png" alt="" />
+          <img class="logo" src="images/rickandmortylogopng.png" alt="" />
           <div>
+            <input
+              type="button"
+              name="episodes"
+              id="episodesbtn"
+              class="episodesbtn"
+              value="EPISODES"
+            />
             <input
               type="text"
               name="searchbtn"
@@ -33,7 +40,7 @@
         <h1 class="text">C H A R A C T E R S</h1>
       </div>
       <div class="wrapCharacters">
-        <div class="characterCard" id="characterContainer"></div>
+        <div class="characterCard" id="characterCard"></div>
       </div>
 
       <div class="filter">
@@ -59,7 +66,7 @@
           <input class="tag" type="checkbox" value="Dead" id="deadCheck" />Dead
           <input class="tag" type="checkbox" value="Unknown" id="unknownCheck" />Unknown
         </div>
-        <p class="addHBO"></p>
+        <button class="addHBO" id="addHBO"></button>
       </div>
     </main>
     <script src="main.js" type="module"></script>
