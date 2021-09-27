@@ -17,7 +17,6 @@
   background-color: rgb(32, 75, 73);
   border-radius: 10px;
   height: 70px;
-  width: 10px;
 }
 body {
   position: inherit;
@@ -33,6 +32,7 @@ body {
 }
 .logo {
   height: 115px;
+  margin: 0 auto;
 }
 .episodesbtn {
   background-color: #7ba381;
@@ -127,6 +127,9 @@ input {
   cursor: pointer;
 }
 .tag {
+  position: relative;
+  top: 18px;
+  right: -18px;
 }
 .specieCharacter {
   border-bottom: 1px azure;
@@ -183,6 +186,9 @@ input {
 .wrapCharacters {
   margin-top: 155px;
 }
+.cardContainer:hover .cardContainer-inner {
+  transform: rotateY(-180deg);
+}
 .cardContainer {
   background-color: transparent;
   width: 180px;
@@ -192,7 +198,7 @@ input {
 }
 .cardContainer-inner {
   text-align: center;
-  transition: transform 1s;
+  transition: transform 1.5s;
   transform-style: preserve-3d;
   border-radius: 6px;
 }
@@ -201,7 +207,7 @@ input {
   backface-visibility: hidden;
   position: absolute;
   width: 100%;
-  border: 2px solid #c8dd5d;
+  border: 2px solid #29a6d8;
 }
 .frontCard {
   color: #091332;
@@ -231,6 +237,7 @@ input {
   line-height: 25px;
   font-size: 20px;
 }
+/*-------Para rotar la card y mostrar la info---------*/
 .backCard {
   display: flex;
   text-align: left;
@@ -238,7 +245,7 @@ input {
   justify-items: space-between;
   align-items: center;
   height: 280px;
-  background-color: rgba(51, 66, 98, 1);
+  background-color: #7ba381;
   border-radius: 6px;
   color: white;
   transform: rotateY(180deg);
@@ -249,13 +256,13 @@ input {
   flex-direction: column;
   justify-items: center;
   align-items: flex-start;
-  padding: 20px;
+  padding: 10px;
 }
 .backCard .infoChar p {
   font-size: 20px;
 }
 .propertyStyle {
-  color: #bedcec;
+  color: whitesmoke;
   font-size: 24px;
 }
 .propertyFlex {
@@ -276,17 +283,14 @@ input {
   -webkit-text-stroke-color: white;
   margin-left: 100px;
 }
-
 .photo {
   height: 180px;
   width: 100%;
 }
-
 .cardText {
-  font-size: 26px;
+  font-size: 20px;
   color: #ffffff;
 }
-
 .name-backcard {
   height: 95px;
   width: 100%;
@@ -300,7 +304,6 @@ input {
   padding: 15px 5px;
   position: relative;
 }
-
 .name-frontcard {
   font-size: 24px;
 }
@@ -315,7 +318,6 @@ input {
   margin-top: 50px;
   height: 20%;
 }
-
 .order-filter-characters {
   display: flex;
   flex-direction: row;

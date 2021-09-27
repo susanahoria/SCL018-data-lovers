@@ -28,7 +28,7 @@ const characterList = function (characters) {
                <p id="genderChar" class="cardText">${characters[i].gender}</p><br>
               </div>
               <div class="propertyFlex">
-               <p class="propertyStyle">Status:</p>
+               <p class="propertyStyle">Status: </p>
                <p id="statusChar" class="cardText">${characters[i].status}</p><br>
               </div>
               <div class="propertyFlex">
