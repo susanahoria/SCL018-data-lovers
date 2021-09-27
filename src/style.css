@@ -5,15 +5,16 @@
 }
 /*----------Barra de scroll--------*/
 ::-webkit-scrollbar {
-  background-color: rgba(24, 46, 170, 0.801);
-  border-radius: 5px;
+  width: 20px;
 }
-::-webkit-scrollbar-button {
-  background-color: lightblue;
+::-webkit-scrollbar-track {
+  background-color: lawngreen;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: indigo;
+  border-radius: 10px;
+  height: 70px;
 }
 body {
   position: inherit;
@@ -23,17 +24,14 @@ body {
 
 /*-----------Header----------*/
 .navRickMorty {
-  position: fixed;
   width: 100%;
   display: inline-block;
-  border-radius: 20px;
   height: 120px;
 }
 .logo {
   height: 115px;
 }
 .episodesbtn {
-  position: inherit;
   background-color: #7ba381;
   font-family: "Lilita One", cursive;
   float: right;
@@ -48,7 +46,6 @@ body {
   border: none;
 }
 .searchbtn {
-  position: inherit;
   background-color: #7ba381;
   color: aliceblue;
   font-family: "Lilita One", cursive;
