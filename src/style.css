@@ -6,23 +6,31 @@
 /*----------Barra de scroll--------*/
 ::-webkit-scrollbar {
   background-color: rgba(24, 46, 170, 0.801);
+  border-radius: 5px;
 }
 ::-webkit-scrollbar-button {
   background-color: lightblue;
 }
 
+::-webkit-scrollbar-thumb {
+  background-color: indigo;
+}
 body {
   position: inherit;
   box-sizing: border-box;
   font-family: "Lilita One", cursive;
 }
+
 /*-----------Header----------*/
 .navRickMorty {
-  background: rgba(137, 43, 226, 0.384);
-  position: inherit;
+  position: fixed;
   width: 100%;
   display: inline-block;
   border-radius: 20px;
+  height: 120px;
+}
+.logo {
+  height: 115px;
 }
 .episodesbtn {
   position: inherit;
@@ -30,7 +38,7 @@ body {
   font-family: "Lilita One", cursive;
   float: right;
   color: aliceblue;
-  margin-top: -90px;
+  margin-top: -85px;
   margin-right: 350px;
   width: 250px;
   height: 50px;
@@ -45,7 +53,7 @@ body {
   color: aliceblue;
   font-family: "Lilita One", cursive;
   float: right;
-  margin-top: -90px;
+  margin-top: -85px;
   margin-right: 50px;
   width: 250px;
   height: 50px;
@@ -64,12 +72,11 @@ body {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  overflow-y: scroll;
 }
 /*---------Texto CHARACTERS-------*/
 .characterText {
@@ -94,6 +101,7 @@ body {
 .filters {
   box-sizing: border-box;
   width: 300px;
+  display: block;
 }
 .orderAlphabetically {
   font-family: "Lilita One", cursive;
@@ -126,7 +134,8 @@ input {
   width: 230px;
   height: 160px;
   background-color: #7ba381;
-  position: absolute;
+  position: fixed;
+  box-sizing: border-box;
   color: aliceblue;
   text-align: center;
   font-size: 25px;
@@ -135,7 +144,7 @@ input {
 }
 .stateCharacter {
   font-family: "Lilita One", cursive;
-  display: table-row;
+  justify-content: space-between;
   top: 385px;
   right: 35px;
   width: 230px;
@@ -159,4 +168,159 @@ input {
   border-radius: 20px;
   bottom: 10px;
   right: 26px;
+  border: none;
+  cursor: pointer;
+}
+
+/*-------Lista personajes-------*/
+.wrapCharacters {
+  margin-top: 165px;
+}
+.cardContainer {
+  background-color: transparent;
+  width: 180px;
+  height: 280px;
+  perspective: 1000px;
+  margin-bottom: 30px;
+}
+.cardContainer-inner {
+  text-align: center;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  border-radius: 6px;
+}
+
+.frontCard,
+.backCard {
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  border: 2px solid #c8dd5d;
+}
+
+.frontCard {
+  color: #091332;
+  font-size: 24px;
+  line-height: 44px;
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  justify-items: center;
+  height: 280px;
+}
+
+.frontCard #photo {
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0px 10px 16px -8px rgba(0, 0, 0, 0.15);
+}
+
+.frontCard .nametag {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.frontCard .nametag #nameChar {
+  margin: 0 auto;
+  line-height: 25px;
+  font-size: 20px;
+}
+
+.backCard {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  justify-items: space-between;
+  align-items: center;
+  height: 280px;
+  background-color: rgba(51, 66, 98, 1);
+  border-radius: 6px;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.backCard .infoChar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.backCard .infoChar p {
+  font-size: 20px;
+}
+
+.propertyStyle {
+  color: #bedcec;
+  font-size: 24px;
+}
+
+.propertyFlex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: right;
+}
+
+.characterCard {
+  width: 75%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  flex-direction: row;
+  color: #091332;
+  -webkit-text-stroke-width: 0.1px;
+  -webkit-text-stroke-color: white;
+  margin-left: 100px;
+}
+
+.photo {
+  height: 180px;
+  width: 100%;
+}
+
+.cardText {
+  font-size: 26px;
+  color: #ffffff;
+}
+
+.name-backcard {
+  height: 95px;
+  width: 100%;
+  font-size: 20px;
+  margin: 1px;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  padding: 15px 5px;
+  position: relative;
+}
+
+.name-frontcard {
+  font-size: 24px;
+}
+.wrap-filter-order {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
+  position: fixed;
+  width: 200px;
+  margin-top: 50px;
+  height: 20%;
+}
+
+.order-filter-characters {
+  display: flex;
+  flex-direction: row;
 }
