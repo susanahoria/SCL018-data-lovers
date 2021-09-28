@@ -76,10 +76,13 @@ alphabeticalOrder.addEventListener("change", function () {
 });
 
 //----------CAJA DE FILTROS-----------//
+
 const chHuman = document.querySelector("#humanCheck");
+console.log(chHuman);
 chHuman.addEventListener("click", (event) => {
   if (event.target.checked === true) {
     //se produce un evento que cambia al hacer checked
+
     //y compara la igualdad de dos objetos sin forzar la conversión automática.
     listCharacters.innerHTML = "";
     let species = "Human";
