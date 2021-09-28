@@ -24,17 +24,21 @@ const characterList = function (characters) {
               <p id="nameChar" class="name-backcard">${characters[i].name}</p>
             <div class="infoChar"> 
               <div class="propertyFlex">
-              <p class="propertyStyle">Status:</p>
-              <p id="statusChar" class="cardText">${characters[i].status}</p><br>
-            </div>
-            <div class="propertyFlex">
-              <p class="propertyStyle">Specie: </p>
-              <p id="specieChar" class="cardText">${characters[i].species}</p><br>
-            </div>
-            <div class="propertyFlex">
-              <p class="propertyStyle">Gender: </p>
-              <p id="genderChar" class="cardText">${characters[i].gender}</p><br>
-            </div>
+               <p class="propertyStyle">Gender: </p>
+               <p id="genderChar" class="cardText">${characters[i].gender}</p><br>
+              </div>
+              <div class="propertyFlex">
+               <p class="propertyStyle">Status: </p>
+               <p id="statusChar" class="cardText">${characters[i].status}</p><br>
+              </div>
+              <div class="propertyFlex">
+               <p class="propertyStyle">Specie: </p>
+               <p id="specieChar" class="cardText">${characters[i].species}</p><br>
+              </div>
+              <div class="propertyFlex">
+               <p class="propertyStyle">Origin: </p>
+               <p id=originChar" class="chardText">${characters[i].origin.name}</p><br>
+              </div>
             </div>
         </div>
       </div>
@@ -52,19 +56,37 @@ searchBtn.addEventListener("keyup", function (e) {
   characterList(searchData);
 });
 
+    //---------------Orden alfabetico---------------//
+const alphabeticalOrder = document.getElementById("orderAlphabetically");
+alphabeticalOrder.addEventListener("change", function () {
+  if (alphabeticalOrder.value === "azOrder") {
+    listCharacters.innerHTML = "";
+    let array = dataOrder.orderAZ(printCharacter);
+    printCharacter = array;
+    characterList(printCharacter);
+  } else if (alphabeticalOrder.value === "zaOrder") {
+    let array = dataOrder.orderZA(printCharacter);
+    printCharacter = array;
+    characterList(printCharacter);
+  } else if (alphabeticalOrder.value === "default") {
+    let array = dataOrder.orderDefault(printCharacter);
+    printCharacter = array;
+    characterList(printCharacter);
+  }
+});
+
 //----------CAJA DE FILTROS-----------//
 const chHuman = document.querySelector('#humanCheck');
-chHuman.addEventListener('click', (event)=>{
+chHuman.addEventListener('click', (event) => {
   if(event.target.checked === true){//se produce un evento que cambia al hacer checked 
     //y compara la igualdad de dos objetos sin forzar la conversión automática.
-   listCharacters.innerHTML = "";
+    listCharacters.innerHTML = "";
     let species = 'Human';
     let onlyHuman = dataOrder.specieResults(printCharacter, species);
    characterList(onlyHuman);
   } else {
     characterList(printCharacter)
   }
-
 });
 const chAlien = document.querySelector('#alienCheck');
 chAlien.addEventListener('click', (event)=>{
@@ -107,7 +129,7 @@ chDead.addEventListener('click', (event)=>{
     let onlyDead = dataOrder.stateResults(printCharacter, state);
     characterList(onlyDead);
   } else{
-    characterList(printCharacter)
+    characterList(printCharacter);
   }
 });
 const chUnknownState = document.querySelector('#unknownCheckState');
