@@ -1,19 +1,9 @@
-const dataOrder = {
-  searchCharacter: function (printCharacter, searchValue) {
-    let searchName = printCharacter.filter((e) => e.name.includes(searchValue));
-    return searchName;
-  },
-  specieResults (printCharacter, species){
-    let onlySpecie = printCharacter.filter(printCharacter =>{
-      return printCharacter.species === species;
-    })
-    return onlySpecie;
-  },
-stateResults (printCharacter, state){
-  let onlyState = printCharacter.filter(printCharacter =>{
-    return printCharacter.state === state;
-  })
-  return onlyState;
-},
+// estas funciones son de ejemplo
+
+export const example = () => {
+  return 'example';
 };
-export default dataOrder;
+
+export const anotherExample = () => {
+  return 'OMG';
+};
