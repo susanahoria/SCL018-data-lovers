@@ -1,74 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <title>Data Loversss</title>
+    <meta charset="utf-8">
+    <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
-    <header>
-      <div class="charactersScreen" id="charactersScreen">
-        <nav class="navRickMorty">
-          <img class="logo" src="images/rickandmortylogopng.png" alt="" />
-          <div>
-            <input
-              type="button"
-              name="episodes"
-              id="episodesbtn"
-              class="episodesbtn"
-              value="EPISODES"
-            />
-            <input
-              type="text"
-              name="searchbtn"
-              id="searchbtn"
-              class="searchbtn"
-              placeholder="Search a character"
-            />
-          </div>
-        </nav>
-      </div>
-    </header>
-   <main>
-      <div class="characterText">
-        <h1 class="text">C H A R A C T E R S</h1>
-      </div>
-      <div class="wrapCharacters">
-        <div class="characterCard" id="characterCard"></div>
-      </div>
-
-      <div class="filter">
-        <select
-          class="orderAlphabetically"
-          name="order"
-          id="orderAlphabetically"
-        >
-          <option selected disabled>Order</option>
-          <option value="">A-Z</option>
-          <option value="">Z-A</option>
-          <option value="">Default</option>
-        </select>
-        <div class="specieCharacter">
-          <p class="specie">Specie</p>
-          <input class="tag" type="checkbox" value="Human" id="humanCheck" />Human
-          <input class="tag" type="checkbox" value="Alien" id="alienCheck" />Alien
-          <input class="tag" type="checkbox" value="Unknown" id="unknownCheck" />Unknown
-        </div>
-        <div class="stateCharacter">
-          <p class="state">State</p>
-          <input class="tag" type="checkbox" value="Alive" id="aliveCheck" />Alive
-          <input class="tag" type="checkbox" value="Dead" id="deadCheck" />Dead
-          <input class="tag" type="checkbox" value="Unknown" id="unknownCheckState" />Unknown
-        </div>
-        <button class="addHBO" id="addHBO"></button>
-      </div>
-    </main>
+    <div id="root"></div>
     <script src="main.js" type="module"></script>
   </body>
 </html>
