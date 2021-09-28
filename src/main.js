@@ -56,7 +56,7 @@ searchBtn.addEventListener("keyup", function (e) {
   characterList(searchData);
 });
 
-//---------------Orden alfabetico---------------//
+    //---------------Orden alfabetico---------------//
 const alphabeticalOrder = document.getElementById("orderAlphabetically");
 alphabeticalOrder.addEventListener("change", function () {
   if (alphabeticalOrder.value === "azOrder") {
@@ -71,6 +71,75 @@ alphabeticalOrder.addEventListener("change", function () {
   } else if (alphabeticalOrder.value === "default") {
     let array = dataOrder.orderDefault(printCharacter);
     printCharacter = array;
+    characterList(printCharacter);
+  }
+});
+
+//----------CAJA DE FILTROS-----------//
+const chHuman = document.querySelector('#humanCheck');
+chHuman.addEventListener('click', (event) => {
+  if(event.target.checked === true){//se produce un evento que cambia al hacer checked 
+    //y compara la igualdad de dos objetos sin forzar la conversión automática.
+    listCharacters.innerHTML = "";
+    let species = 'Human';
+    let onlyHuman = dataOrder.specieResults(printCharacter, species);
+   characterList(onlyHuman);
+  } else {
+    characterList(printCharacter)
+  }
+});
+const chAlien = document.querySelector('#alienCheck');
+chAlien.addEventListener('click', (event)=>{
+  if(event.target.checked === true) {
+    listCharacters.innerHTML = "";
+    let species = 'Alien';
+    let onlyAlien = dataOrder.specieResults(printCharacter, species);
+    characterList(onlyAlien);
+  } else{
+    characterList(printCharacter);
+  }
+});
+const chUnknown = document.querySelector('#unknownCheck');
+chUnknown.addEventListener('click', (event)=>{
+  if(event.target.checked === true){
+    listCharacters.innerHTML = "";
+    let species = 'Unknown';
+    let onlyUnknown = dataOrder.specieResults(printCharacter,species);
+    characterList(onlyUnknown);
+  } else{
+    characterList(printCharacter);
+  }
+});
+const chAlive = document.querySelector('#aliveCheck');
+chAlive.addEventListener('click', (event)=>{
+  if(event.target.checked === true){
+    listCharacters.innerHTML = "";
+    let state = 'Alive';
+    let onlyAlive = dataOrder.stateResults(printCharacter, state);
+    characterList(onlyAlive);
+  } else{
+    characterList(printCharacter);
+  }
+});
+const chDead = document.querySelector('#deadCheck');
+chDead.addEventListener('click', (event)=>{
+  if(event.target.checked === true){
+    listCharacters.innerHTML= "";
+    let state = 'Dead';
+    let onlyDead = dataOrder.stateResults(printCharacter, state);
+    characterList(onlyDead);
+  } else{
+    characterList(printCharacter);
+  }
+});
+const chUnknownState = document.querySelector('#unknownCheckState');
+chUnknownState.addEventListener('click', (event)=>{
+  if(event.target.checked === true){
+    listCharacters.innerHTML = "";
+    let state = 'Unknown';
+    let onlyUnknownState = dataOrder.stateResults(printCharacter, state);
+    characterList(onlyUnknownState);
+  } else{
     characterList(printCharacter);
   }
 });
