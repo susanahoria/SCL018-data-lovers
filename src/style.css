@@ -353,6 +353,52 @@ input {
     box-sizing: border-box;
     font-family: "Lilita One", cursive;
   }
+
+  /*-------------Barra nav---------------*/
+  .navRickMorty {
+    width: 100%;
+    display: inline-block;
+    height: 120px;
+    justify-content: space-evenly;
+  }
+  .logo {
+    width: 35%;
+    height: 110px;
+    margin-left: 1%;
+    margin-right: auto;
+    margin-top: 5px;
+    background: url(images/rickandmortylogopng.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+  .episodesbtn {
+    background-color: #7ba381;
+    font-family: "Lilita One", cursive;
+    float: right;
+    color: aliceblue;
+    margin-top: -85px;
+    margin-right: 23%;
+    width: 20%;
+    height: 50px;
+    border-radius: 23px;
+    text-align: center;
+    font-size: 22px;
+    border: none;
+  }
+  .searchbtn {
+    background-color: #7ba381;
+    color: aliceblue;
+    font-family: "Lilita One", cursive;
+    float: right;
+    margin-top: -85px;
+    margin-right: 1%;
+    width: 20%;
+    height: 50px;
+    border-radius: 23px;
+    text-align: center;
+    font-size: 22px;
+    border: none;
+  }
   /*----texto CHARACTERS-----*/
   .characterText {
     background-color: #7ba381;
@@ -381,10 +427,7 @@ input {
     margin-left: 10px;
     margin-top: 150px;
   }
-  .charactersContainer {
-    width: 75%;
-    padding: 5%;
-  }
+
   .cardContainer {
     width: 280px;
     height: 400px;
@@ -407,7 +450,7 @@ input {
     height: 400px;
   }
   .backCard .infoChar p {
-    font-size: 40px;
+    font-size: 35px;
   }
   .name-backcard {
     height: 150px;
@@ -417,5 +460,33 @@ input {
   }
   .wrap-filter-order {
     width: 300px;
+  }
+}
+/*---------------------Responsive ipad---------------*/
+@media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+  body {
+    background: url(images/rickymorty-ipadhorizontal.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: inherit;
+    box-sizing: border-box;
+    font-family: "Lilita One", cursive;
+  }
+  .characterCard {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: row;
+    color: #091332;
+    -webkit-text-stroke-width: 0.1px;
+    -webkit-text-stroke-color: white;
+    margin-left: -9px;
   }
 }
