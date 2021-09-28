@@ -44,12 +44,13 @@ const dataOrder = {
     });
     return onlySpecie;
   },
-  //Funcion estado
-  stateResults(printCharacter, state) {
-    let onlyState = printCharacter.filter((printCharacter) => {
-      return printCharacter.state === state;
-    });
-    return onlyState;
+
+  stateResults (printCharacter, state){
+  let onlyState = printCharacter.filter(printCharacter =>{
+    return printCharacter.status === state;
+  })
+  return onlyState;
+
   },
 };
 export default dataOrder;
