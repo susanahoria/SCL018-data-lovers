@@ -3,7 +3,7 @@ const dataOrder = {
     let searchName = printCharacter.filter((e) => e.name.includes(searchValue));
     return searchName;
   },
-
+  //ordenar de la A a la Z
   orderAZ: function (printCharacter) {
     let orderedResults = printCharacter.sort(function (a, b) {
       if (a.name > b.name) {
@@ -14,7 +14,7 @@ const dataOrder = {
     });
     return orderedResults;
   },
-
+  //ordenar de la Z a la A
   orderZA: function (printCharacter) {
     let orderedResults = printCharacter.sort(function (a, b) {
       if (a.name < b.name) {
@@ -25,7 +25,7 @@ const dataOrder = {
     });
     return orderedResults;
   },
-
+  //Ordenar default
   orderDefault: function (printCharacter) {
     let orderedResults = printCharacter.sort(function (a, b) {
       if (a.id > b.id) {
@@ -36,18 +36,21 @@ const dataOrder = {
     });
     return orderedResults;
   },
-  
-  specieResults (printCharacter, species){
-    let onlySpecie = printCharacter.filter(printCharacter =>{
+
+  //Funcion especie
+  specieResults(printCharacter, species) {
+    let onlySpecie = printCharacter.filter((printCharacter) => {
       return printCharacter.species === species;
-    })
+    });
     return onlySpecie;
   },
+
   stateResults (printCharacter, state){
   let onlyState = printCharacter.filter(printCharacter =>{
     return printCharacter.status === state;
   })
   return onlyState;
+
   },
 };
 export default dataOrder;
