@@ -2,9 +2,9 @@ import data from "./data/rickandmorty/rickandmorty.js";
 import dataOrder from "./data.js";
 //traer datos de rickandmorty.js
 let printCharacter = data.results;
-const listCharacters = document.getElementById("characterCard");
 
 //-----------------Imprimir personajes----------------------//
+const listCharacters = document.getElementById("characterCard");
 const characterList = function (characters) {
   //declarar variable para imprimir personajes
   let list = "";
