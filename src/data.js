@@ -45,7 +45,7 @@ const dataOrder = {
   },
   stateResults (printCharacter, state){
   let onlyState = printCharacter.filter(printCharacter =>{
-    return printCharacter.state === state;
+    return printCharacter.status === state;
   })
   return onlyState;
   },
