@@ -103,6 +103,9 @@ body {
 }
 
 /*-------------Filtros-------------*/
+input[type="checkbox"] {
+  transform: scale(1.7);
+}
 .filters {
   display: flex;
   flex-direction: column;
@@ -399,6 +402,12 @@ input {
     font-size: 22px;
     border: none;
   }
+  #azOrder,
+  #zaOrder,
+  #default,
+  option {
+    font-size: 18px;
+  }
   /*----texto CHARACTERS-----*/
   .characterText {
     background-color: #7ba381;
@@ -477,6 +486,8 @@ input {
     box-sizing: border-box;
     font-family: "Lilita One", cursive;
   }
+
+  /*-------------Impresion personajes---------------*/
   .characterCard {
     width: 75%;
     height: 100%;
@@ -488,5 +499,11 @@ input {
     -webkit-text-stroke-width: 0.1px;
     -webkit-text-stroke-color: white;
     margin-left: -9px;
+  }
+  #azOrder,
+  #zaOrder,
+  #default,
+  option {
+    font-size: 18px;
   }
 }
