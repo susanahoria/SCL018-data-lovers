@@ -44,13 +44,14 @@ const dataOrder = {
     });
     return onlySpecie;
   },
+  //funcion estado del personaje
 
   stateResults (printCharacter, state){
   let onlyState = printCharacter.filter(printCharacter =>{
     return printCharacter.status === state;
   })
   return onlyState;
-
+  
   },
 };
 export default dataOrder;
