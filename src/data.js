@@ -51,7 +51,7 @@ const dataOrder = {
     return printCharacter.status === state;
   })
   return onlyState;
-
+  
   },
 };
 export default dataOrder;
