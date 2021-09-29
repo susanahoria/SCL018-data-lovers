@@ -63,3 +63,23 @@ describe("dataOrder.orderDefault", () => {
     ]);
   });
 });
+//test funcion buscar!
+describe("dataOrder.searchCharacter", () => {
+  it("is a function", () => {
+    expect(typeof dataOrder.searchCharacter).toBe("function");
+  });
+
+  it("should return Character name with A letter", () => {
+    expect(dataOrder.searchCharacter(array, "A")).toEqual([
+      { name: "Alexander", id: 12, species: "Human", status: "Dead" },
+      { name: "Alien Rick", id: 15, species: "Alien", status: "unknown" },
+    ]);
+  });
+
+  it("should return Character name with D letter", () => {
+    expect(dataOrder.searchCharacter(array, "D")).toEqual([
+      { name: "David Letterman", id: 91, species: "Human", status: "Alive" },
+      { name: "Doom-Nomitron", id: 104, species: "Alien", status: "Dead" },
+    ]);
+  });
+});
