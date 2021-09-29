@@ -107,7 +107,7 @@ const chUnknown = document.querySelector("#unknownCheck");
 chUnknown.addEventListener("click", (event) => {
   if (event.target.checked === true) {
     listCharacters.innerHTML = "";
-    let species = "Unknown";
+    let species = "unknown";
     let onlyUnknown = dataOrder.specieResults(printCharacter, species);
     characterList(onlyUnknown);
   } else {
@@ -140,7 +140,7 @@ const chUnknownState = document.querySelector("#unknownCheckState");
 chUnknownState.addEventListener("click", (event) => {
   if (event.target.checked === true) {
     listCharacters.innerHTML = "";
-    let state = "Unknown";
+    let state = "unknown";
     let onlyUnknownState = dataOrder.stateResults(printCharacter, state);
     characterList(onlyUnknownState);
   } else {
