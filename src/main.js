@@ -78,7 +78,6 @@ alphabeticalOrder.addEventListener("change", function () {
 //----------CAJA DE FILTROS-----------//
 
 const chHuman = document.querySelector("#humanCheck");
-console.log(chHuman);
 chHuman.addEventListener("click", (event) => {
   if (event.target.checked === true) {
     //se produce un evento que cambia al hacer checked
@@ -154,4 +153,4 @@ buttonAdd.addEventListener("click", function () {
   location.href =
     "https://www.hbomax.com/cl/es/series/urn:hbo:series:GXkRjxwjR68PDwwEAABKJ?countryRedirect=1";
 });
-console.log(dataOrder, data);
+

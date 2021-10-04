@@ -34,6 +34,7 @@ describe("dataOrder", () => {
       {name: "Doom-Nomitron", id: 104, species: "Alien", status: "Dead"}
     ]);
   });
+});
 
   //test status
   describe("dataOrder.stateResults", () => {
