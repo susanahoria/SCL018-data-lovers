@@ -13,7 +13,6 @@
   </head>
   <body>
     <header>
-      
       <div class="charactersScreen" id="charactersScreen">
         <nav class="navRickMorty">
           <div class="logo"></div>
@@ -57,19 +56,53 @@
         </select>
         <div class="specieCharacter">
           <p class="specie">Specie</p>
-          <input class="tag" type="checkbox" for="specie" value="Human" id="humanCheck"/>Human
-          <input class="tag" type="checkbox" for="specie" value="Alien" id="alienCheck" />Alien
-          <input class="tag" type="checkbox" for="specie" value="Unknown" id="unknownCheck" />Unknown
+          <input
+            class="tag"
+            type="checkbox"
+            for="specie"
+            value="Human"
+            id="humanCheck"
+          />Human
+          <input
+            class="tag"
+            type="checkbox"
+            for="specie"
+            value="Alien"
+            id="alienCheck"
+          />Alien
+          <input
+            class="tag"
+            type="checkbox"
+            for="specie"
+            value="Unknown"
+            id="unknownCheck"
+          />Unknown
         </div>
         <div class="stateCharacter">
           <p class="state">State</p>
-          <input class="tag" type="checkbox" value="Alive" id="aliveCheck" />Alive
+          <input
+            class="tag"
+            type="checkbox"
+            value="Alive"
+            id="aliveCheck"
+          />Alive
           <input class="tag" type="checkbox" value="Dead" id="deadCheck" />Dead
-          <input class="tag" type="checkbox" value="Unknown" id="unknownCheckState" />Unknown
+          <input
+            class="tag"
+            type="checkbox"
+            value="Unknown"
+            id="unknownCheckState"
+          />Unknown
         </div>
         <button class="addHBO" id="addHBO"></button>
       </div>
     </main>
+    <footer>
+      <div>
+        <button class="prevLink" id="prevLink">Prev</button>
+        <button class="nextLink" id="nextLink">Next</button>
+      </div>
+    </footer>
     <script src="main.js" type="module"></script>
   </body>
 </html>
