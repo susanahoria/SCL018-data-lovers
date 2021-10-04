@@ -153,4 +153,4 @@ buttonAdd.addEventListener("click", function () {
   location.href =
     "https://www.hbomax.com/cl/es/series/urn:hbo:series:GXkRjxwjR68PDwwEAABKJ?countryRedirect=1";
 });
-console.log(dataOrder, data);
+
