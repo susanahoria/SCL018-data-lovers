@@ -47,6 +47,14 @@ fetch("https://rickandmortyapi.com/api/character")
       document.getElementById("characterCard").innerHTML = list;
     };
     characterList(printCharacter);
+  });
+
+//----------CAJA DE FILTROS-----------//
+
+const chHuman = document.querySelector("#humanCheck");
+chHuman.addEventListener("click", (event) => {
+  if (event.target.checked === true) {
+    //se produce un evento que cambia al hacer checked
 
     //-------------Boton search---------------//
     const searchBtn = document.getElementById("searchbtn");
@@ -143,7 +151,8 @@ fetch("https://rickandmortyapi.com/api/character")
         characterList(printCharacter);
       }
     });
-  });
+  }
+});
 //-------------ADD HBO-------------//
 const buttonAdd = document.getElementById("addHBO");
 buttonAdd.addEventListener("click", function () {

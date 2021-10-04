@@ -28,8 +28,34 @@ describe("dataOrder", () => {
       ]);
     });
 
-    it("should returns Alien species", () => {
-      expect(dataOrder.specieResults(array, "Alien")).toEqual([
+  it("should returns Alien species", () => {
+    expect(dataOrder.specieResults(array, "Alien")).toEqual([
+      {name: "Alien Rick", id: 15, species: "Alien", status:"unknown"},
+      {name: "Doom-Nomitron", id: 104, species: "Alien", status: "Dead"}
+    ]);
+  });
+});
+
+  //test status
+  describe("dataOrder.stateResults", () => {
+    it("is a function", () => {
+      expect(typeof dataOrder.stateResults).toBe("function");
+    });
+    it("should returns Alive status", () => {
+      expect(dataOrder.stateResults(array, "Alive")).toEqual([
+        { name: "Rick Sanchez", id: 1, species: "Human", status: "Alive" },
+        { name: "Morty Smith", id: 2, species: "Human", status: "Alive" },
+        { name: "David Letterman", id: 91, species: "Human", status: "Alive" },
+      ]);
+    });
+    it("should returns Dead status", () => {
+      expect(dataOrder.stateResults(array, "Dead")).toEqual([
+        { name: "Alexander", id: 12, species: "Human", status: "Dead" },
+        { name: "Doom-Nomitron", id: 104, species: "Alien", status: "Dead" },
+      ]);
+    });
+    it("should returns unknown status", () => {
+      expect(dataOrder.stateResults(array, "unknown")).toEqual([
         { name: "Alien Rick", id: 15, species: "Alien", status: "unknown" },
         { name: "Doom-Nomitron", id: 104, species: "Alien", status: "Dead" }
       ]);
