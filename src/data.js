@@ -53,3 +53,4 @@ const dataOrder = {
     return onlyState;
   },
 };
+export default dataOrder;
