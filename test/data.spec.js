@@ -31,8 +31,8 @@ describe("dataOrder.specieResults", () => {
 
   it("should returns Alien species", () => {
     expect(dataOrder.specieResults(array, "Alien")).toEqual([
-      {name: "Doom-Nomitron", id: 104, species: "Alien", status: "Dead"},
-      {name: "Alien Rick", id: 15, species: "Alien", status:"unknown"}
+      {name: "Alien Rick", id: 15, species: "Alien", status:"unknown"},
+      {name: "Doom-Nomitron", id: 104, species: "Alien", status: "Dead"}
     ]);
   });
   
