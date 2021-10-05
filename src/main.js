@@ -1,17 +1,22 @@
 import dataOrder from "./data.js";
-fetch("https://rickandmortyapi.com/api/character")
-  .then((answer) => answer.json())
-  .then((data) => {
-    let printCharacter = data.results;
-    //-----------------Imprimir personajes----------------------//
-    const listCharacters = document.getElementById("characterCard");
-    const characterList = function (characters) {
-      //declarar variable para imprimir personajes
-      let list = "";
-      document.getElementById("characterCard").innerHTML = "";
-      //inicia
-      for (let i = 0; i < characters.length; i++) {
-        list += `
+const prevLink = document.getElementById("prevLink");
+const nextLink = document.getElementById("nextLink");
+let page = 1;
+
+const getCharacters = () => {
+  fetch("https://rickandmortyapi.com/api/character?page=" + page)
+    .then((answer) => answer.json())
+    .then((data) => {
+      let printCharacter = data.results;
+      //-----------------Imprimir personajes----------------------//
+      const listCharacters = document.getElementById("characterCard");
+      const characterList = function (characters) {
+        //declarar variable para imprimir personajes
+        let list = "";
+        document.getElementById("characterCard").innerHTML = "";
+        //inicia
+        for (let i = 0; i < characters.length; i++) {
+          list += `
     <div class= "cardContainer">
       <div id="printCharacters" class="cardContainer-inner">
         <div class="frontCard">
@@ -43,105 +48,126 @@ fetch("https://rickandmortyapi.com/api/character")
         </div>
       </div>
     </div>`;
-      }
-      document.getElementById("characterCard").innerHTML = list;
-    };
-    characterList(printCharacter);
-    //-------------Boton search---------------//
-    const searchBtn = document.getElementById("searchbtn");
-    searchBtn.addEventListener("keyup", function (e) {
-      const searchTarget = e.target.value;
-      let searchData = dataOrder.searchCharacter(printCharacter, searchTarget);
-      characterList(searchData);
-    });
-    //---------------Orden alfabetico---------------//
-    var alphabeticalOrder = document.getElementById("orderAlphabetically");
-    alphabeticalOrder.addEventListener("change", function () {
-      if (alphabeticalOrder.value === "azOrder") {
+        }
+        document.getElementById("characterCard").innerHTML = list;
+      };
+      characterList(printCharacter);
+      //-------------Boton search---------------//
+      const searchBtn = document.getElementById("searchbtn");
+      searchBtn.addEventListener("keyup", function (e) {
+        const searchTarget = e.target.value;
+        let searchData = dataOrder.searchCharacter(
+          printCharacter,
+          searchTarget
+        );
+        characterList(searchData);
+      });
+      //---------------Orden alfabetico---------------//
+      const alphabeticalOrder = document.getElementById("orderAlphabetically");
+      alphabeticalOrder.addEventListener("change", function () {
+        if (alphabeticalOrder.value === "azOrder") {
+          listCharacters.innerHTML = "";
+          let array = dataOrder.orderAZ(printCharacter);
+          printCharacter = array;
+          characterList(printCharacter);
+        } else if (alphabeticalOrder.value === "zaOrder") {
+          let array = dataOrder.orderZA(printCharacter);
+          printCharacter = array;
+          characterList(printCharacter);
+        } else if (alphabeticalOrder.value === "default") {
+          let array = dataOrder.orderDefault(printCharacter);
+          printCharacter = array;
+          characterList(printCharacter);
+        }
+      });
+      //----------CAJA DE FILTROS-----------//
+      const chHuman = document.querySelector("#humanCheck");
+      chHuman.addEventListener("click", (event) => {
         listCharacters.innerHTML = "";
-        let array = dataOrder.orderAZ(printCharacter);
-        printCharacter = array;
-        characterList(printCharacter);
-      } else if (alphabeticalOrder.value === "zaOrder") {
-        let array = dataOrder.orderZA(printCharacter);
-        printCharacter = array;
-        characterList(printCharacter);
-      } else if (alphabeticalOrder.value === "default") {
-        let array = dataOrder.orderDefault(printCharacter);
-        printCharacter = array;
-        characterList(printCharacter);
-      }
-    });
-    //----------CAJA DE FILTROS-----------//
-    const chHuman = document.querySelector("#humanCheck");
-    chHuman.addEventListener("click", (event) => {
-      if (event.target.checked === true) {
-        //se produce un evento que cambia al hacer checked
-        //y compara la igualdad de dos objetos sin forzar la conversión automática.
+        if (event.target.checked === true) {
+          //se produce un evento que cambia al hacer checked
+          //y compara la igualdad de dos objetos sin forzar la conversión automática.
+          let species = "Human";
+          let onlyHuman = dataOrder.specieResults(printCharacter, species);
+          characterList(onlyHuman);
+        } else {
+          characterList(printCharacter);
+        }
+      });
+      const chAlien = document.querySelector("#alienCheck");
+      chAlien.addEventListener("click", (event) => {
         listCharacters.innerHTML = "";
-        let species = "Human";
-        let onlyHuman = dataOrder.specieResults(printCharacter, species);
-        characterList(onlyHuman);
-      } else {
-        characterList(printCharacter);
-      }
-    });
-    const chAlien = document.querySelector("#alienCheck");
-    chAlien.addEventListener("click", (event) => {
-      if (event.target.checked === true) {
+        if (event.target.checked === true) {
+          let species = "Alien";
+          let onlyAlien = dataOrder.specieResults(printCharacter, species);
+          characterList(onlyAlien);
+        } else {
+          characterList(printCharacter);
+        }
+      });
+      const chUnknown = document.querySelector("#unknownCheck");
+      chUnknown.addEventListener("click", (event) => {
         listCharacters.innerHTML = "";
-        let species = "Alien";
-        let onlyAlien = dataOrder.specieResults(printCharacter, species);
-        characterList(onlyAlien);
-      } else {
-        characterList(printCharacter);
-      }
-    });
-    const chUnknown = document.querySelector("#unknownCheck");
-    chUnknown.addEventListener("click", (event) => {
-      if (event.target.checked === true) {
+        if (event.target.checked === true) {
+          let species = "unknown";
+          let onlyUnknown = dataOrder.specieResults(printCharacter, species);
+          characterList(onlyUnknown);
+        } else {
+          characterList(printCharacter);
+        }
+      });
+      const chAlive = document.querySelector("#aliveCheck");
+      chAlive.addEventListener("click", (event) => {
         listCharacters.innerHTML = "";
-        let species = "unknown";
-        let onlyUnknown = dataOrder.specieResults(printCharacter, species);
-        characterList(onlyUnknown);
-      } else {
-        characterList(printCharacter);
-      }
-    });
-    const chAlive = document.querySelector("#aliveCheck");
-    chAlive.addEventListener("click", (event) => {
-      if (event.target.checked === true) {
+        if (event.target.checked === true) {
+          let state = "Alive";
+          let onlyAlive = dataOrder.stateResults(printCharacter, state);
+          characterList(onlyAlive);
+        } else {
+          characterList(printCharacter);
+        }
+      });
+      const chDead = document.querySelector("#deadCheck");
+      chDead.addEventListener("click", (event) => {
         listCharacters.innerHTML = "";
-        let state = "Alive";
-        let onlyAlive = dataOrder.stateResults(printCharacter, state);
-        characterList(onlyAlive);
-      } else {
-        characterList(printCharacter);
-      }
-    });
-    const chDead = document.querySelector("#deadCheck");
-    chDead.addEventListener("click", (event) => {
-      if (event.target.checked === true) {
+        if (event.target.checked === true) {
+          let state = "Dead";
+          let onlyDead = dataOrder.stateResults(printCharacter, state);
+          characterList(onlyDead);
+        } else {
+          characterList(printCharacter);
+        }
+      });
+      const chUnknownState = document.querySelector("#unknownCheckState");
+      chUnknownState.addEventListener("click", (event) => {
         listCharacters.innerHTML = "";
-        let state = "Dead";
-        let onlyDead = dataOrder.stateResults(printCharacter, state);
-        characterList(onlyDead);
-      } else {
-        characterList(printCharacter);
-      }
+        if (event.target.checked === true) {
+          let state = "unknown";
+          let onlyUnknownState = dataOrder.stateResults(printCharacter, state);
+          characterList(onlyUnknownState);
+        } else {
+          characterList(printCharacter);
+        }
+      });
+      const prev = data.info.prev;
+      const next = data.info.next;
+      prevLink.disabled = prev ? false : true;
+      nextLink.disabled = next ? false : true;
     });
-    const chUnknownState = document.querySelector("#unknownCheckState");
-    chUnknownState.addEventListener("click", (event) => {
-      if (event.target.checked === true) {
-        listCharacters.innerHTML = "";
-        let state = "unknown";
-        let onlyUnknownState = dataOrder.stateResults(printCharacter, state);
-        characterList(onlyUnknownState);
-      } else {
-        characterList(printCharacter);
-      }
-    });
-  });
+};
+
+getCharacters();
+
+prevLink.addEventListener("click", () => {
+  page--;
+  getCharacters();
+});
+nextLink.addEventListener("click", () => {
+  page++;
+  getCharacters();
+});
+
+//-------Desactivar botones de color cuando no hayan más paginas-----//
 
 //-------------ADD HBO-------------//
 const buttonAdd = document.getElementById("addHBO");
