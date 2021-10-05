@@ -542,4 +542,18 @@ footer {
   option {
     font-size: 18px;
   }
+  /*-------------Footer--------------*/
+  .buttonpag {
+    background-color: #7ba381;
+    font-family: "Lilita One", cursive;
+    width: 200px;
+    height: 70px;
+    border-radius: 15px;
+    flex-direction: row;
+    align-items: center;
+    align-content: space-between;
+    margin-right: 10px;
+    font-size: 20px;
+    margin-left: 110px;
+  }
 }
