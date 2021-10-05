@@ -52,7 +52,7 @@ body {
   background-repeat: no-repeat;
 }
 .episodesbtn {
-  background-color: #7ba381;
+  background-color: #358f44;
   font-family: "Lilita One", cursive;
   float: right;
   color: aliceblue;
@@ -66,7 +66,7 @@ body {
   border: none;
 }
 .searchbtn {
-  background-color: #7ba381;
+  background-color: #358f44;
   color: aliceblue;
   font-family: "Lilita One", cursive;
   float: right;
@@ -86,7 +86,7 @@ body {
 
 /*---------Texto CHARACTERS-------*/
 .characterText {
-  background-color: #7ba381;
+  background-color: #358f44;
   position: fixed;
   transform: rotate(270deg);
   width: 500px;
@@ -104,9 +104,10 @@ body {
 }
 
 /*-------------Filtros-------------*/
-input[type="checkbox"] {
+input[type="radio"] {
   transform: scale(1.7);
 }
+
 .filters {
   display: flex;
   flex-direction: column;
@@ -128,7 +129,7 @@ input[type="checkbox"] {
   height: 50px;
   font-size: 30px;
   border-radius: 25px;
-  background-color: #7ba381;
+  background-color: #358f44;
   position: fixed;
   color: aliceblue;
   text-align: center;
@@ -158,7 +159,7 @@ input {
   right: 25px;
   width: 230px;
   height: 160px;
-  background-color: #7ba381;
+  background-color: #358f44;
   position: fixed;
   box-sizing: border-box;
   color: aliceblue;
@@ -176,7 +177,7 @@ input {
   right: 25px;
   width: 230px;
   height: 160px;
-  background-color: #7ba381;
+  background-color: #358f44;
   position: fixed;
   color: aliceblue;
   text-align: center;
@@ -203,17 +204,17 @@ input {
 
 /*-------Lista personajes-------*/
 .wrapCharacters {
-  margin-top: 40px;
+  margin-top: 15px;
 }
 .cardContainer:hover .cardContainer-inner {
   transform: rotateY(-180deg);
 }
 .cardContainer {
   background-color: transparent;
-  width: 180px;
-  height: 280px;
+  width: 200px;
+  height: 300px;
   perspective: 1000px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 .cardContainer-inner {
   text-align: center;
@@ -264,7 +265,7 @@ input {
   justify-items: space-between;
   align-items: center;
   height: 280px;
-  background-color: #7ba381;
+  background-color: #358f44;
   border-radius: 6px;
   color: white;
   transform: rotateY(180deg);
@@ -342,6 +343,40 @@ input {
   flex-direction: row;
 }
 
+/*----------------Footer-----------------*/
+
+footer {
+  width: 100%;
+  height: 100px;
+}
+.buttonpag {
+  background-color: #358f44;
+  font-family: "Lilita One", cursive;
+  width: 200px;
+  height: 70px;
+  color: antiquewhite;
+  border-radius: 15px;
+  flex-direction: row;
+  align-items: center;
+  align-content: space-between;
+  margin-right: 20px;
+  font-size: 25px;
+  margin-left: 300px;
+  border: none;
+}
+
+.buttonpag:hover {
+  background-color: #286b34;
+  cursor: pointer;
+}
+
+.buttonpag:disabled {
+  background-color: #475249;
+  cursor: not-allowed;
+  filter: blur(1.5px);
+  color: darkorange;
+}
+
 /*-----------responsive iphone----------*/
 @media only screen and (min-device-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
   body {
@@ -376,7 +411,7 @@ input {
     background-repeat: no-repeat;
   }
   .episodesbtn {
-    background-color: #7ba381;
+    background-color: #358f44;
     font-family: "Lilita One", cursive;
     float: right;
     color: aliceblue;
@@ -390,7 +425,7 @@ input {
     border: none;
   }
   .searchbtn {
-    background-color: #7ba381;
+    background-color: #358f44;
     color: aliceblue;
     font-family: "Lilita One", cursive;
     float: right;
@@ -411,7 +446,7 @@ input {
   }
   /*----texto CHARACTERS-----*/
   .characterText {
-    background-color: #7ba381;
+    background-color: #358f44;
     position: fixed;
     transform: rotate(360deg);
     width: 500px;
@@ -471,6 +506,26 @@ input {
   .wrap-filter-order {
     width: 300px;
   }
+  /*--------------footer-----------------*/
+  .buttonpag {
+    background-color: #358f44;
+    font-family: "Lilita One", cursive;
+    width: 200px;
+    height: 70px;
+    color: antiquewhite;
+    border-radius: 15px;
+    flex-direction: row;
+    align-items: center;
+    align-content: space-between;
+    margin-right: 10px;
+    font-size: 25px;
+    margin-left: 180px;
+    border: none;
+  }
+  .buttonpag:hover {
+    background-color: #286b34;
+    cursor: pointer;
+  }
 }
 /*---------------------Responsive ipad---------------*/
 @media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -506,5 +561,25 @@ input {
   #default,
   option {
     font-size: 18px;
+  }
+  /*-------------Footer--------------*/
+  .buttonpag {
+    background-color: #358f44;
+    font-family: "Lilita One", cursive;
+    width: 200px;
+    height: 70px;
+    color: antiquewhite;
+    border-radius: 15px;
+    flex-direction: row;
+    align-items: center;
+    align-content: space-between;
+    margin-right: 10px;
+    font-size: 24px;
+    margin-left: 110px;
+    border: none;
+  }
+  .buttonpag:hover {
+    background-color: #358f44;
+    cursor: pointer;
   }
 }
