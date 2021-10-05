@@ -57,22 +57,25 @@
         <div class="specieCharacter">
           <p class="specie">Specie</p>
           <input
+            name="checkSpecie"
             class="tag"
-            type="checkbox"
+            type="radio"
             for="specie"
             value="Human"
             id="humanCheck"
           />Human
           <input
+            name="checkSpecie"
             class="tag"
-            type="checkbox"
+            type="radio"
             for="specie"
             value="Alien"
             id="alienCheck"
           />Alien
           <input
+            name="checkSpecie"
             class="tag"
-            type="checkbox"
+            type="radio"
             for="specie"
             value="Unknown"
             id="unknownCheck"
@@ -81,15 +84,23 @@
         <div class="stateCharacter">
           <p class="state">State</p>
           <input
+            name="checkState"
             class="tag"
-            type="checkbox"
+            type="radio"
             value="Alive"
             id="aliveCheck"
           />Alive
-          <input class="tag" type="checkbox" value="Dead" id="deadCheck" />Dead
           <input
+            name="checkState"
             class="tag"
-            type="checkbox"
+            type="radio"
+            value="Dead"
+            id="deadCheck"
+          />Dead
+          <input
+            name="checkState"
+            class="tag"
+            type="radio"
             value="Unknown"
             id="unknownCheckState"
           />Unknown
@@ -99,8 +110,8 @@
     </main>
     <footer>
       <div>
-        <button class="buttonpag" id="prevLink">< Prev</button>
-        <button class="buttonpag" id="nextLink">Next ></button>
+        <button class="buttonpag" id="prevLink">PREV</button>
+        <button class="buttonpag" id="nextLink">NEXT</button>
       </div>
     </footer>
     <script src="main.js" type="module"></script>
