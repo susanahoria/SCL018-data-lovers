@@ -1,6 +1,7 @@
 import dataOrder from "./data.js";
 const prevLink = document.getElementById("prevLink");
 const nextLink = document.getElementById("nextLink");
+const listCharacters = document.getElementById("characterCard");
 let page = 1;
 
 const getCharacters = () => {
@@ -9,7 +10,6 @@ const getCharacters = () => {
     .then((data) => {
       let printCharacter = data.results;
       //-----------------Imprimir personajes----------------------//
-      const listCharacters = document.getElementById("characterCard");
       const characterList = function (characters) {
         //declarar variable para imprimir personajes
         let list = "";
@@ -155,7 +155,6 @@ const getCharacters = () => {
       nextLink.disabled = next ? false : true;
     });
 };
-
 getCharacters();
 
 prevLink.addEventListener("click", () => {
@@ -173,3 +172,37 @@ buttonAdd.addEventListener("click", function () {
   location.href =
     "https://www.hbomax.com/cl/es/series/urn:hbo:series:GXkRjxwjR68PDwwEAABKJ?countryRedirect=1";
 });
+//-------------Funcion Hidden--------//
+const buttonEpisodes = document.getElementById("episodesbtn");
+const wrapEpisodes = document.getElementById("wrapEpisodes");
+const main = document.getElementById("mainCharacters");
+const buttonCharacters = document.getElementById("charactersbtn");
+buttonCharacters.hidden = true;
+buttonEpisodes.addEventListener(
+  "click",
+  function () {
+    main.hidden = true;
+    wrapEpisodes.hidden = false;
+    buttonEpisodes.hidden = true;
+    buttonCharacters.hidden = false;
+  },
+  false
+);
+
+//------------Volver a characters-----------//
+
+buttonCharacters.addEventListener("click", function () {
+  main.hidden = false;
+  wrapEpisodes.hidden = true;
+  buttonEpisodes.hidden = false;
+  buttonCharacters.hidden = true;
+});
+
+//-------------Episodios------------//
+const getEpisodes = () => {
+  fetch("https://rickandmortyapi.com/api/episode")
+    .then((answer) => answer.json())
+    .then((data) => {
+      let printEpisodes = data.results;
+    });
+};

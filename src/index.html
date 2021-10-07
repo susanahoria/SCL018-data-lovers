@@ -25,6 +25,13 @@
               value="EPISODES"
             />
             <input
+              type="button"
+              name="characters"
+              id="charactersbtn"
+              class="episodesbtn"
+              value="CHARACTERS"
+            />
+            <input
               type="text"
               name="searchbtn"
               id="searchbtn"
@@ -35,14 +42,13 @@
         </nav>
       </div>
     </header>
-    <main>
+    <main id="mainCharacters">
       <div class="characterText">
         <h1 class="text">C H A R A C T E R S</h1>
       </div>
       <div class="wrapCharacters">
         <div class="characterCard" id="characterCard"></div>
       </div>
-
       <div class="filter">
         <select
           class="orderAlphabetically"
@@ -108,6 +114,9 @@
         <button class="addHBO" id="addHBO"></button>
       </div>
     </main>
+    <div class="wrapEpisodes" id="wrapEpisodes">
+      <div class="epidoses" id="episodes"></div>
+    </div>
     <footer id="buttonsPrevAndNext">
       <button class="buttonpag" id="prevLink">PREV</button>
       <button class="buttonpag" id="nextLink">NEXT</button>
