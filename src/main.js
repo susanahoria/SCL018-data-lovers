@@ -1,13 +1,17 @@
 import dataOrder from "./data.js";
 const prevLink = document.getElementById("prevLink");
 const nextLink = document.getElementById("nextLink");
-const listCharacters = document.getElementById("characterCard");
+const searchBtn = document.getElementById("searchbtn");
+//se llama al elemento que contiene los episodios y se oculta
+const wrapEpisodes = document.getElementById("wrapEpisodes");
+wrapEpisodes.hidden = true;
+//variable para pagina
 let page = 1;
-
 const getCharacters = () => {
   fetch("https://rickandmortyapi.com/api/character?page=" + page)
     .then((answer) => answer.json())
     .then((data) => {
+      const listCharacters = document.getElementById("characterCard");
       let printCharacter = data.results;
       //-----------------Imprimir personajes----------------------//
       const characterList = function (characters) {
@@ -53,7 +57,6 @@ const getCharacters = () => {
       };
       characterList(printCharacter);
       //-------------Boton search---------------//
-      const searchBtn = document.getElementById("searchbtn");
       searchBtn.addEventListener("keyup", function (e) {
         const searchTarget = e.target.value;
         let searchData = dataOrder.searchCharacter(
@@ -85,8 +88,6 @@ const getCharacters = () => {
       chHuman.addEventListener("click", (event) => {
         listCharacters.innerHTML = "";
         if (event.target.checked === true) {
-          //se produce un evento que cambia al hacer checked
-          //y compara la igualdad de dos objetos sin forzar la conversión automática.
           let species = "Human";
           let onlyHuman = dataOrder.specieResults(printCharacter, species);
           characterList(onlyHuman);
@@ -172,37 +173,82 @@ buttonAdd.addEventListener("click", function () {
   location.href =
     "https://www.hbomax.com/cl/es/series/urn:hbo:series:GXkRjxwjR68PDwwEAABKJ?countryRedirect=1";
 });
+
 //-------------Funcion Hidden--------//
-const buttonEpisodes = document.getElementById("episodesbtn");
-const wrapEpisodes = document.getElementById("wrapEpisodes");
+const btnEpisodes = document.getElementById("episodesbtn");
+
 const main = document.getElementById("mainCharacters");
-const buttonCharacters = document.getElementById("charactersbtn");
-buttonCharacters.hidden = true;
-buttonEpisodes.addEventListener(
+const btnCharacters = document.getElementById("charactersbtn");
+btnCharacters.hidden = true;
+btnEpisodes.addEventListener(
   "click",
   function () {
     main.hidden = true;
     wrapEpisodes.hidden = false;
-    buttonEpisodes.hidden = true;
-    buttonCharacters.hidden = false;
+    btnEpisodes.hidden = true;
+    btnCharacters.hidden = false;
+    searchBtn.disabled = true;
   },
   false
 );
 
 //------------Volver a characters-----------//
-
-buttonCharacters.addEventListener("click", function () {
+btnCharacters.addEventListener("click", function () {
   main.hidden = false;
   wrapEpisodes.hidden = true;
-  buttonEpisodes.hidden = false;
-  buttonCharacters.hidden = true;
+  btnEpisodes.hidden = false;
+  btnCharacters.hidden = true;
+  searchBtn.disabled = false;
 });
 
 //-------------Episodios------------//
+let pageEp = 1;
 const getEpisodes = () => {
-  fetch("https://rickandmortyapi.com/api/episode")
+  fetch("https://rickandmortyapi.com/api/episode?page=" + pageEp)
     .then((answer) => answer.json())
     .then((data) => {
       let printEpisodes = data.results;
+      const listEpisodes = document.getElementById("episodes");
+      const episodeList = function (episodes) {
+        listEpisodes.innerHTML = "";
+        let list = "";
+        for (let i = 0; i < episodes.length; i++) {
+          list += `
+          <div class= "cardContainerep">
+          <div id="printCharacters" class="cardContainer-innerep">
+            <div class="backCardEp">
+                  <p class="name-backcardep">${episodes[i].name}</p>
+                <div class="infoChar"> 
+                  <div class="propertyFlex">
+                   <p class="propertyStyle">AirDate: </p>
+                   <p class="cardTextEp">${episodes[i].air_date}</p><br>
+                  </div>
+                  <div class="propertyFlex">
+                   <p class="propertyStyle">Episode: </p>
+                   <p class="cardTextEp">${episodes[i].episode}</p><br>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+          `;
+        }
+        listEpisodes.innerHTML = list;
+      };
+      episodeList(printEpisodes);
+      const prev = data.info.prev;
+      const next = data.info.next;
+      prevLink.disabled = prev ? false : true;
+      nextLink.disabled = next ? false : true;
     });
 };
+getEpisodes();
+
+prevLink.addEventListener("click", () => {
+  pageEp--;
+  getEpisodes();
+});
+nextLink.addEventListener("click", () => {
+  pageEp++;
+  getEpisodes();
+});
