@@ -189,14 +189,14 @@ input {
 .addHBO {
   background-image: url(images/add.jpg);
   height: 160px;
-  width: 250px;
+  width: 17%;
   background-repeat: no-repeat;
   background-size: 250px 160px;
   position: fixed;
   border-radius: 20px;
   top: 530px;
   bottom: 10px;
-  right: 14px;
+  right: 13px;
   border: none;
   cursor: pointer;
   top: 550px;
@@ -527,6 +527,72 @@ footer {
   .buttonpag:hover {
     background-color: #286b34;
     cursor: pointer;
+  }
+  /*--------------FILTROS-----------------*/
+  .orderAlphabetically {
+    font-family: "Lilita One", cursive;
+    box-sizing: border-box;
+    top: 130px;
+    right: 24px;
+    width: 22%;
+    height: 50px;
+    font-size: 30px;
+    border-radius: 25px;
+    background-color: #358f44;
+    position: fixed;
+    color: aliceblue;
+    text-align: center;
+  }
+  .specieCharacter {
+    border-bottom: 1px azure;
+    font-family: "Lilita One", cursive;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 190px;
+    right: 24px;
+    width: 22%;
+    height: 160px;
+    background-color: #358f44;
+    position: fixed;
+    box-sizing: border-box;
+    color: aliceblue;
+    text-align: center;
+    font-size: 25px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+  }
+  .stateCharacter {
+    font-family: "Lilita One", cursive;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 360px;
+    right: 24px;
+    width: 22%;
+    height: 160px;
+    background-color: #358f44;
+    position: fixed;
+    color: aliceblue;
+    text-align: center;
+    font-size: 25px;
+    border-radius: 20px;
+  }
+  /*--------------------ADD------------------------*/
+  .addHBO {
+    background-image: url(images/add.jpg);
+    height: 160px;
+    width: 25%;
+    background-repeat: no-repeat;
+    background-size: 250px 160px;
+    position: fixed;
+    border-radius: 20px;
+    top: 530px;
+    bottom: 10px;
+    right: 13px;
+    border: none;
+    cursor: pointer;
+    top: 550px;
   }
 }
 /*---------------------Responsive ipad---------------*/
