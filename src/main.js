@@ -106,7 +106,7 @@ const chUnknown = document.querySelector("#unknownCheck");
 chUnknown.addEventListener("click", (event) => {
   if (event.target.checked === true) {
     listCharacters.innerHTML = "";
-    let species = "Unknown";
+    let species = "unknown";
     let onlyUnknown = dataOrder.specieResults(printCharacter, species);
     characterList(onlyUnknown);
   } else {
@@ -139,13 +139,25 @@ const chUnknownState = document.querySelector("#unknownCheckState");
 chUnknownState.addEventListener("click", (event) => {
   if (event.target.checked === true) {
     listCharacters.innerHTML = "";
-    let state = "Unknown";
+    let state = "unknown";
     let onlyUnknownState = dataOrder.stateResults(printCharacter, state);
     characterList(onlyUnknownState);
   } else {
     characterList(printCharacter);
   }
 });
+//----------BOTON EPISODES--------//
+const btnEpisodes= document.getElementById('episodesbtn');
+btnEpisodes.addEventListener("click", function(){
+  let url = 'https://rickandmortyapi.com/api/episode'
+  fetch(url)
+  .then(response => response.json())
+  .then(data =>  data.results)
+  .then(result => result.map(episodes => {
+    listCharacters.innerHTML = episodes.name;
+  }))
+  
+})
 
 //-------------ADD HBO-------------//
 const buttonAdd = document.getElementById("addHBO");

@@ -31,6 +31,7 @@ body {
   position: inherit;
   box-sizing: border-box;
   font-family: "Lilita One", cursive;
+  /*display: flex;*/
 }
 
 /*-----------Header----------*/
@@ -107,7 +108,7 @@ body {
 input[type="checkbox"] {
   transform: scale(1.7);
 }
-.filters {
+.filter {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -117,6 +118,7 @@ input[type="checkbox"] {
   width: 200px;
   margin-top: 50px;
   height: 20%;
+  /*margin-left: 300px;*/
 }
 
 .orderAlphabetically {
@@ -472,6 +474,7 @@ input {
     width: 300px;
   }
 }
+
 /*---------------------Responsive ipad---------------*/
 @media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
   body {
