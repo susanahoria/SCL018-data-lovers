@@ -220,11 +220,11 @@ const getEpisodes = () => {
                   <p class="name-backcardep">${episodes[i].name}</p>
                 <div class="infoChar"> 
                   <div class="propertyFlex">
-                   <p class="propertyStyle">AirDate: </p>
+                   <p class="propertyStyle">AirDate : </p>
                    <p class="cardTextEp">${episodes[i].air_date}</p><br>
                   </div>
                   <div class="propertyFlex">
-                   <p class="propertyStyle">Episode: </p>
+                   <p class="propertyStyle">Episode : </p>
                    <p class="cardTextEp">${episodes[i].episode}</p><br>
                   </div>
                 </div>
