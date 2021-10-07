@@ -124,8 +124,8 @@ input[type="radio"] {
   font-family: "Lilita One", cursive;
   box-sizing: border-box;
   top: 130px;
-  right: 25px;
-  width: 230px;
+  right: 20px;
+  width: 16%;
   height: 50px;
   font-size: 30px;
   border-radius: 25px;
@@ -156,8 +156,8 @@ input {
   flex-direction: column;
   justify-content: space-between;
   top: 190px;
-  right: 25px;
-  width: 230px;
+  right: 20px;
+  width: 16%;
   height: 160px;
   background-color: #358f44;
   position: fixed;
@@ -174,8 +174,8 @@ input {
   flex-direction: column;
   justify-content: space-between;
   top: 360px;
-  right: 25px;
-  width: 230px;
+  right: 20px;
+  width: 16%;
   height: 160px;
   background-color: #358f44;
   position: fixed;
@@ -369,6 +369,8 @@ footer {
   background-color: #286b34;
   cursor: pointer;
 }
+
+/*-------Desactivar botones de color cuando no hayan más paginas-----*/
 
 .buttonpag:disabled {
   background-color: #475249;

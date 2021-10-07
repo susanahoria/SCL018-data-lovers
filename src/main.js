@@ -167,8 +167,6 @@ nextLink.addEventListener("click", () => {
   getCharacters();
 });
 
-//-------Desactivar botones de color cuando no hayan más paginas-----//
-
 //-------------ADD HBO-------------//
 const buttonAdd = document.getElementById("addHBO");
 buttonAdd.addEventListener("click", function () {
