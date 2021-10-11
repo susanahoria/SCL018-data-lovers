@@ -344,6 +344,24 @@ input {
   flex-direction: row;
 }
 
+.episodes {
+  font-family: "Lilita One", cursive;
+  font-size: 24px;
+}
+.episodesContainer {
+  background: #ffffffa9;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  border-radius: 8px;
+  border-color: #091332;
+  margin-top: 10px;
+  width: 550px;
+  float: left;
+  margin-left: 20px;
+}
+
+
 /*-----------responsive iphone----------*/
 @media only screen and (min-device-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
   body {

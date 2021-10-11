@@ -147,17 +147,34 @@ chUnknownState.addEventListener("click", (event) => {
   }
 });
 //----------BOTON EPISODES--------//
+
 const btnEpisodes= document.getElementById('episodesbtn');
+const wrapEpisodes= document.getElementById('wrapEpisodes');
+const main = document.getElementById('mainCharacters');
+btnEpisodes.addEventListener("click", function(){
+  main.hidden = true;
+  wrapEpisodes.hidden = false;
+})
 btnEpisodes.addEventListener("click", function(){
   let url = 'https://rickandmortyapi.com/api/episode'
   fetch(url)
   .then(response => response.json())
   .then(data =>  data.results)
-  .then(result => result.map(episodes => {
-    listCharacters.innerHTML = episodes.name;
-  }))
-  
+  .then(result => result.map(episode => {
+    const listEpisodes = document.getElementById('episodes');
+    listEpisodes.innerHTML += `
+    <div class="episodesContainer">
+      <ol>
+        <li>Name: ${episode.name}</li>
+        <li>Created: ${episode.created}</li>
+        <li>Url: ${episode.url}</li>
+      </ol>
+    </div>
+    `
+   
+  })); 
 })
+
 
 //-------------ADD HBO-------------//
 const buttonAdd = document.getElementById("addHBO");
