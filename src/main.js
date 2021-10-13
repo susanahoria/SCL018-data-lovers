@@ -1,15 +1,20 @@
 import dataOrder from "./data.js";
 const prevLink = document.getElementById("prevLink");
 const nextLink = document.getElementById("nextLink");
+const searchBtn = document.getElementById("searchbtn");
+const wrapEpisodes = document.getElementById("wrapEpisodes");
+const divBtnEpisodes = document.getElementById("divBtnEpisodes");
+const divBtnCharacters = document.getElementById("divBtnCharacters");
+divBtnEpisodes.hidden = true;
+wrapEpisodes.hidden = true;
 let page = 1;
-
 const getCharacters = () => {
   fetch("https://rickandmortyapi.com/api/character?page=" + page)
     .then((answer) => answer.json())
     .then((data) => {
+      const listCharacters = document.getElementById("characterCard");
       let printCharacter = data.results;
       //-----------------Imprimir personajes----------------------//
-      const listCharacters = document.getElementById("characterCard");
       const characterList = function (characters) {
         //declarar variable para imprimir personajes
         let list = "";
@@ -17,45 +22,44 @@ const getCharacters = () => {
         //inicia
         for (let i = 0; i < characters.length; i++) {
           list += `
-    <div class= "cardContainer">
-      <div id="printCharacters" class="cardContainer-inner">
-        <div class="frontCard">
-          <img id="photo" class="photo" src="${characters[i].image}"/>
-          <div class="nametag">
-          <p id="nameChar" class="name-frontcard">${characters[i].name}</p>
-          </div>
-        </div>
-        <div class="backCard">
-              <p id="nameChar" class="name-backcard">${characters[i].name}</p>
-            <div class="infoChar"> 
-              <div class="propertyFlex">
-               <p class="propertyStyle">Gender: </p>
-               <p id="genderChar" class="cardText">${characters[i].gender}</p><br>
+          <div class= "cardContainer">
+            <div id="printCharacters" class="cardContainer-inner">
+              <div class="frontCard">
+                <img id="photo" class="photo" src="${characters[i].image}"/>
+                <div class="nametag">
+                <p id="nameChar" class="name-frontcard">${characters[i].name}</p>
+                </div>
               </div>
-              <div class="propertyFlex">
-               <p class="propertyStyle">Status: </p>
-               <p id="statusChar" class="cardText">${characters[i].status}</p><br>
-              </div>
-              <div class="propertyFlex">
-               <p class="propertyStyle">Specie: </p>
-               <p id="specieChar" class="cardText">${characters[i].species}</p><br>
-              </div>
-              <div class="propertyFlex">
-               <p class="propertyStyle">Origin: </p>
-               <p id=originChar" class="chardText">${characters[i].origin.name}</p><br>
+              <div class="backCard">
+                    <p id="nameChar" class="name-backcard">${characters[i].name}</p>
+                  <div class="infoChar"> 
+                    <div class="propertyFlex">
+                    <p class="propertyStyle">Gender: </p>
+                    <p id="genderChar" class="cardText">${characters[i].gender}</p><br>
+                    </div>
+                    <div class="propertyFlex">
+                    <p class="propertyStyle">Status: </p>
+                    <p id="statusChar" class="cardText">${characters[i].status}</p><br>
+                    </div>
+                    <div class="propertyFlex">
+                    <p class="propertyStyle">Specie: </p>
+                    <p id="specieChar" class="cardText">${characters[i].species}</p><br>
+                    </div>
+                    <div class="propertyFlex">
+                    <p class="propertyStyle">Origin: </p>
+                    <p id=originChar" class="chardText">${characters[i].origin.name}</p><br>
+                    </div>
+                  </div>
               </div>
             </div>
-        </div>
-      </div>
-    </div>`;
+          </div>`;
         }
         document.getElementById("characterCard").innerHTML = list;
       };
       characterList(printCharacter);
       //-------------Boton search---------------//
-      const searchBtn = document.getElementById("searchbtn");
       searchBtn.addEventListener("keyup", function (e) {
-        const searchTarget = e.target.value;
+        const searchTarget = e.target.value.toLowerCase();
         let searchData = dataOrder.searchCharacter(
           printCharacter,
           searchTarget
@@ -67,16 +71,13 @@ const getCharacters = () => {
       alphabeticalOrder.addEventListener("change", function () {
         if (alphabeticalOrder.value === "azOrder") {
           listCharacters.innerHTML = "";
-          let array = dataOrder.orderAZ(printCharacter);
-          printCharacter = array;
+          printCharacter = dataOrder.orderAZ(printCharacter);
           characterList(printCharacter);
         } else if (alphabeticalOrder.value === "zaOrder") {
-          let array = dataOrder.orderZA(printCharacter);
-          printCharacter = array;
+          printCharacter = dataOrder.orderZA(printCharacter);
           characterList(printCharacter);
         } else if (alphabeticalOrder.value === "default") {
-          let array = dataOrder.orderDefault(printCharacter);
-          printCharacter = array;
+          printCharacter = dataOrder.orderDefault(printCharacter);
           characterList(printCharacter);
         }
       });
@@ -85,8 +86,6 @@ const getCharacters = () => {
       chHuman.addEventListener("click", (event) => {
         listCharacters.innerHTML = "";
         if (event.target.checked === true) {
-          //se produce un evento que cambia al hacer checked
-          //y compara la igualdad de dos objetos sin forzar la conversión automática.
           let species = "Human";
           let onlyHuman = dataOrder.specieResults(printCharacter, species);
           characterList(onlyHuman);
@@ -155,7 +154,6 @@ const getCharacters = () => {
       nextLink.disabled = next ? false : true;
     });
 };
-
 getCharacters();
 
 prevLink.addEventListener("click", () => {
@@ -167,11 +165,93 @@ nextLink.addEventListener("click", () => {
   getCharacters();
 });
 
-//-------Desactivar botones de color cuando no hayan más paginas-----//
-
 //-------------ADD HBO-------------//
 const buttonAdd = document.getElementById("addHBO");
 buttonAdd.addEventListener("click", function () {
   location.href =
     "https://www.hbomax.com/cl/es/series/urn:hbo:series:GXkRjxwjR68PDwwEAABKJ?countryRedirect=1";
+});
+
+//-------------Funcion Hidden--------//
+const btnEpisodes = document.getElementById("episodesbtn");
+const main = document.getElementById("mainCharacters");
+const btnCharacters = document.getElementById("charactersbtn");
+btnCharacters.hidden = true;
+btnEpisodes.addEventListener(
+  "click",
+  function () {
+    divBtnCharacters.hidden = true;
+    divBtnEpisodes.hidden = false;
+    main.hidden = true;
+    wrapEpisodes.hidden = false;
+    btnEpisodes.hidden = true;
+    btnCharacters.hidden = false;
+    searchBtn.disabled = true;
+  },
+  false
+);
+
+//------------Volver a characters-----------//
+btnCharacters.addEventListener("click", function () {
+  main.hidden = false;
+  divBtnEpisodes.hidden = true;
+  divBtnCharacters.hidden = false;
+  wrapEpisodes.hidden = true;
+  btnEpisodes.hidden = false;
+  btnCharacters.hidden = true;
+  searchBtn.disabled = false;
+});
+
+//-------------Episodios------------//
+const prevLinkEp = document.getElementById("prevLinkEp");
+const nextLinkEp = document.getElementById("nextLinkEp");
+let pageEp = 1;
+const getEpisodes = () => {
+  fetch("https://rickandmortyapi.com/api/episode?page=" + pageEp)
+    .then((answer) => answer.json())
+    .then((data) => {
+      let printEpisodes = data.results;
+      const listEpisodes = document.getElementById("episodes");
+      const episodeList = function (episodes) {
+        listEpisodes.innerHTML = "";
+        let list = "";
+        for (let i = 0; i < episodes.length; i++) {
+          list += `
+          <div class= "cardContainerep">
+          <div id="printCharacters" class="cardContainer-innerep">
+            <div class="backCardEp">
+                  <p class="name-backcardep">${episodes[i].name}</p>
+                <div class="infoChar"> 
+                  <div class="propertyFlex">
+                   <p class="propertyStyle">AirDate : </p>
+                   <p class="cardTextEp">${episodes[i].air_date}</p><br>
+                  </div>
+                  <div class="propertyFlex">
+                   <p class="propertyStyle">Episode : </p>
+                   <p class="cardTextEp">${episodes[i].episode}</p><br>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+          `;
+        }
+        listEpisodes.innerHTML = list;
+      };
+      episodeList(printEpisodes);
+      const prev = data.info.prev;
+      const next = data.info.next;
+      prevLinkEp.disabled = prev ? false : true;
+      nextLinkEp.disabled = next ? false : true;
+    });
+};
+getEpisodes();
+
+prevLinkEp.addEventListener("click", () => {
+  pageEp--;
+  getEpisodes();
+});
+nextLinkEp.addEventListener("click", () => {
+  pageEp++;
+  getEpisodes();
 });
