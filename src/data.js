@@ -1,6 +1,8 @@
 const dataOrder = {
   searchCharacter: function (printCharacter, searchValue) {
-    let searchName = printCharacter.filter((e) => e.name.includes(searchValue));
+    let searchName = printCharacter.filter((e) =>
+      e.name.toLowerCase().includes(searchValue)
+    );
     return searchName;
   },
   //ordenar de la A a la Z
@@ -45,7 +47,6 @@ const dataOrder = {
     return onlySpecie;
   },
   //funcion estado del personaje
-
   stateResults(printCharacter, state) {
     let onlyState = printCharacter.filter((printCharacter) => {
       return printCharacter.status === state;

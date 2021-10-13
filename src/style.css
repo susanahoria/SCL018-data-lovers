@@ -361,18 +361,37 @@ footer {
   align-content: space-between;
   margin-right: 20px;
   font-size: 25px;
-  margin-left: 300px;
+  margin-left: 305px;
   border: none;
 }
-
 .buttonpag:hover {
+  background-color: #286b34;
+  cursor: pointer;
+}
+.buttonpagep {
+  background-color: #358f44;
+  font-family: "Lilita One", cursive;
+  width: 200px;
+  height: 70px;
+  color: antiquewhite;
+  border-radius: 15px;
+  flex-direction: row;
+  align-items: center;
+  align-content: space-between;
+  margin-right: 40px;
+  font-size: 25px;
+  margin-left: 360px;
+  border: none;
+}
+.buttonpagep:hover {
   background-color: #286b34;
   cursor: pointer;
 }
 
 /*-------Desactivar botones de color cuando no hayan más paginas-----*/
 
-.buttonpag:disabled {
+.buttonpag:disabled,
+.buttonpagep:disabled {
   background: #475249;
   cursor: not-allowed;
   filter: blur(1.5px);
@@ -595,6 +614,22 @@ footer {
     background-color: #286b34;
     cursor: pointer;
   }
+  .buttonpagep {
+    background-color: #358f44;
+    font-family: "Lilita One", cursive;
+    width: 200px;
+    height: 70px;
+    color: antiquewhite;
+    border-radius: 15px;
+    flex-direction: row;
+    align-items: center;
+    align-content: space-between;
+    margin-right: 40px;
+    font-size: 25px;
+    margin-left: 210px;
+    border: none;
+  }
+
   /*--------------FILTROS-----------------*/
   .orderAlphabetically {
     font-family: "Lilita One", cursive;
@@ -711,6 +746,21 @@ footer {
     margin-right: 10px;
     font-size: 24px;
     margin-left: 110px;
+    border: none;
+  }
+  .buttonpagep {
+    background-color: #358f44;
+    font-family: "Lilita One", cursive;
+    width: 200px;
+    height: 70px;
+    color: antiquewhite;
+    border-radius: 15px;
+    flex-direction: row;
+    align-items: center;
+    align-content: space-between;
+    margin-right: 40px;
+    font-size: 25px;
+    margin-left: 225px;
     border: none;
   }
   .buttonpag:hover {

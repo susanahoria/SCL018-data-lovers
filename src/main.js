@@ -2,10 +2,11 @@ import dataOrder from "./data.js";
 const prevLink = document.getElementById("prevLink");
 const nextLink = document.getElementById("nextLink");
 const searchBtn = document.getElementById("searchbtn");
-//se llama al elemento que contiene los episodios y se oculta
 const wrapEpisodes = document.getElementById("wrapEpisodes");
+const divBtnEpisodes = document.getElementById("divBtnEpisodes");
+const divBtnCharacters = document.getElementById("divBtnCharacters");
+divBtnEpisodes.hidden = true;
 wrapEpisodes.hidden = true;
-//variable para pagina
 let page = 1;
 const getCharacters = () => {
   fetch("https://rickandmortyapi.com/api/character?page=" + page)
@@ -21,44 +22,44 @@ const getCharacters = () => {
         //inicia
         for (let i = 0; i < characters.length; i++) {
           list += `
-    <div class= "cardContainer">
-      <div id="printCharacters" class="cardContainer-inner">
-        <div class="frontCard">
-          <img id="photo" class="photo" src="${characters[i].image}"/>
-          <div class="nametag">
-          <p id="nameChar" class="name-frontcard">${characters[i].name}</p>
-          </div>
-        </div>
-        <div class="backCard">
-              <p id="nameChar" class="name-backcard">${characters[i].name}</p>
-            <div class="infoChar"> 
-              <div class="propertyFlex">
-               <p class="propertyStyle">Gender: </p>
-               <p id="genderChar" class="cardText">${characters[i].gender}</p><br>
+          <div class= "cardContainer">
+            <div id="printCharacters" class="cardContainer-inner">
+              <div class="frontCard">
+                <img id="photo" class="photo" src="${characters[i].image}"/>
+                <div class="nametag">
+                <p id="nameChar" class="name-frontcard">${characters[i].name}</p>
+                </div>
               </div>
-              <div class="propertyFlex">
-               <p class="propertyStyle">Status: </p>
-               <p id="statusChar" class="cardText">${characters[i].status}</p><br>
-              </div>
-              <div class="propertyFlex">
-               <p class="propertyStyle">Specie: </p>
-               <p id="specieChar" class="cardText">${characters[i].species}</p><br>
-              </div>
-              <div class="propertyFlex">
-               <p class="propertyStyle">Origin: </p>
-               <p id=originChar" class="chardText">${characters[i].origin.name}</p><br>
+              <div class="backCard">
+                    <p id="nameChar" class="name-backcard">${characters[i].name}</p>
+                  <div class="infoChar"> 
+                    <div class="propertyFlex">
+                    <p class="propertyStyle">Gender: </p>
+                    <p id="genderChar" class="cardText">${characters[i].gender}</p><br>
+                    </div>
+                    <div class="propertyFlex">
+                    <p class="propertyStyle">Status: </p>
+                    <p id="statusChar" class="cardText">${characters[i].status}</p><br>
+                    </div>
+                    <div class="propertyFlex">
+                    <p class="propertyStyle">Specie: </p>
+                    <p id="specieChar" class="cardText">${characters[i].species}</p><br>
+                    </div>
+                    <div class="propertyFlex">
+                    <p class="propertyStyle">Origin: </p>
+                    <p id=originChar" class="chardText">${characters[i].origin.name}</p><br>
+                    </div>
+                  </div>
               </div>
             </div>
-        </div>
-      </div>
-    </div>`;
+          </div>`;
         }
         document.getElementById("characterCard").innerHTML = list;
       };
       characterList(printCharacter);
       //-------------Boton search---------------//
       searchBtn.addEventListener("keyup", function (e) {
-        const searchTarget = e.target.value;
+        const searchTarget = e.target.value.toLowerCase();
         let searchData = dataOrder.searchCharacter(
           printCharacter,
           searchTarget
@@ -70,16 +71,13 @@ const getCharacters = () => {
       alphabeticalOrder.addEventListener("change", function () {
         if (alphabeticalOrder.value === "azOrder") {
           listCharacters.innerHTML = "";
-          let array = dataOrder.orderAZ(printCharacter);
-          printCharacter = array;
+          printCharacter = dataOrder.orderAZ(printCharacter);
           characterList(printCharacter);
         } else if (alphabeticalOrder.value === "zaOrder") {
-          let array = dataOrder.orderZA(printCharacter);
-          printCharacter = array;
+          printCharacter = dataOrder.orderZA(printCharacter);
           characterList(printCharacter);
         } else if (alphabeticalOrder.value === "default") {
-          let array = dataOrder.orderDefault(printCharacter);
-          printCharacter = array;
+          printCharacter = dataOrder.orderDefault(printCharacter);
           characterList(printCharacter);
         }
       });
@@ -176,13 +174,14 @@ buttonAdd.addEventListener("click", function () {
 
 //-------------Funcion Hidden--------//
 const btnEpisodes = document.getElementById("episodesbtn");
-
 const main = document.getElementById("mainCharacters");
 const btnCharacters = document.getElementById("charactersbtn");
 btnCharacters.hidden = true;
 btnEpisodes.addEventListener(
   "click",
   function () {
+    divBtnCharacters.hidden = true;
+    divBtnEpisodes.hidden = false;
     main.hidden = true;
     wrapEpisodes.hidden = false;
     btnEpisodes.hidden = true;
@@ -195,6 +194,8 @@ btnEpisodes.addEventListener(
 //------------Volver a characters-----------//
 btnCharacters.addEventListener("click", function () {
   main.hidden = false;
+  divBtnEpisodes.hidden = true;
+  divBtnCharacters.hidden = false;
   wrapEpisodes.hidden = true;
   btnEpisodes.hidden = false;
   btnCharacters.hidden = true;
@@ -202,6 +203,8 @@ btnCharacters.addEventListener("click", function () {
 });
 
 //-------------Episodios------------//
+const prevLinkEp = document.getElementById("prevLinkEp");
+const nextLinkEp = document.getElementById("nextLinkEp");
 let pageEp = 1;
 const getEpisodes = () => {
   fetch("https://rickandmortyapi.com/api/episode?page=" + pageEp)
@@ -238,17 +241,17 @@ const getEpisodes = () => {
       episodeList(printEpisodes);
       const prev = data.info.prev;
       const next = data.info.next;
-      prevLink.disabled = prev ? false : true;
-      nextLink.disabled = next ? false : true;
+      prevLinkEp.disabled = prev ? false : true;
+      nextLinkEp.disabled = next ? false : true;
     });
 };
 getEpisodes();
 
-prevLink.addEventListener("click", () => {
+prevLinkEp.addEventListener("click", () => {
   pageEp--;
   getEpisodes();
 });
-nextLink.addEventListener("click", () => {
+nextLinkEp.addEventListener("click", () => {
   pageEp++;
   getEpisodes();
 });
