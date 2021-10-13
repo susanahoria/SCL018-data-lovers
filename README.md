@@ -11,11 +11,16 @@ la lista de los episodios!
 Creada de forma responsiva para ipad, escritorio y iphone
 
 ## 2.Prototipo
+![Image text](https://github.com/susanahoria/SCL018-data-lovers/blob/rama-susan/src/images/figma.png)
 
 ### responsivo escritorio
+![Image text]()
 
 ### responsivo ipad
-
-### responsivo iphone
+![Image text](https://github.com/susanahoria/SCL018-data-lovers/blob/rama-susan/src/images/responsive-ipad.png)
+![Image text](https://github.com/susanahoria/SCL018-data-lovers/blob/rama-susan/src/images/responsive-ipad-horizontal.png)
+![Image text](https://github.com/susanahoria/SCL018-data-lovers/blob/rama-susan/src/images/episodios.png)
 
 ## 3.Diseño final
+![Image text](https://github.com/susanahoria/SCL018-data-lovers/blob/rama-susan/src/images/app-final.png)
+
